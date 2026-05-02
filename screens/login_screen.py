@@ -43,6 +43,11 @@ KV = """
             pos_hint: {"center_x": 0.5}
             on_release: root.do_login(login_input.text, password_input.text)
 
+        MDTextButton:
+            text: "Нет аккаунта? Регистрация"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.switch_screen("register")
+
         MDLabel:
             id: error_label
             text: ""
