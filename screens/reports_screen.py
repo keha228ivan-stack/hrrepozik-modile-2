@@ -9,9 +9,12 @@ KV = """
     name: "reports"
     MDBoxLayout:
         orientation: "vertical"
+        md_bg_color: 0.93, 0.94, 0.96, 1
 
         MDTopAppBar:
             title: "Отчеты"
+            md_bg_color: 1, 1, 1, 1
+            specific_text_color: 0.08, 0.12, 0.22, 1
 
         ScrollView:
             MDBoxLayout:

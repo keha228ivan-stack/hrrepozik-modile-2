@@ -8,6 +8,7 @@ KV = """
     name: "login"
     MDBoxLayout:
         orientation: "vertical"
+        md_bg_color: 0.93, 0.94, 0.96, 1
         padding: "24dp"
         spacing: "16dp"
 
