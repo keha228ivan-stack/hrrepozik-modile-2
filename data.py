@@ -22,7 +22,6 @@ departments = [
     {"name": "Бухгалтерия", "employees_count": 8, "average_progress": 84, "average_score": 89, "completed_courses": 16, "overdue_courses": 1, "kpi": 87},
     {"name": "IT-отдел", "employees_count": 15, "average_progress": 79, "average_score": 81, "completed_courses": 22, "overdue_courses": 2, "kpi": 78},
     {"name": "Производство", "employees_count": 20, "average_progress": 58, "average_score": 63, "completed_courses": 24, "overdue_courses": 7, "kpi": 56},
-    {"name": "HR-отдел", "employees_count": 6, "average_progress": 90, "average_score": 92, "completed_courses": 12, "overdue_courses": 0, "kpi": 93},
 ]
 
 kpi_metrics = [
@@ -30,12 +29,26 @@ kpi_metrics = [
     {"name": "KPI завершения курсов", "value": 74},
     {"name": "KPI среднего балла тестирования", "value": 80},
     {"name": "KPI соблюдения сроков", "value": 68},
-    {"name": "KPI активности сотрудников", "value": 71},
+]
+
+
+course_library = [
+    {"id": 1, "title": "Техника продаж", "category": "Продажи", "duration_hours": 8},
+    {"id": 2, "title": "Финансовая отчетность", "category": "Финансы", "duration_hours": 10},
+    {"id": 3, "title": "Кибербезопасность", "category": "IT", "duration_hours": 6},
+    {"id": 4, "title": "Охрана труда", "category": "Производство", "duration_hours": 5},
+]
+
+assigned_courses_progress = [
+    {"employee_id": 1, "course_id": 1, "deadline": "2026-05-20", "progress": 45},
+    {"employee_id": 2, "course_id": 2, "deadline": "2026-05-15", "progress": 88},
+    {"employee_id": 3, "course_id": 3, "deadline": "2026-05-25", "progress": 72},
+    {"employee_id": 4, "course_id": 4, "deadline": "2026-05-10", "progress": 39},
 ]
 
 report_templates = {
     "Отчет по выполнению курсов": "За период назначено 42 курса, завершено 31. Средний прогресс обучения — 76%.",
-    "Отчет по отделам": "Лучший KPI у HR-отдела (93%). Зона роста: Производство (56%) и Отдел продаж (61%).",
+    "Отчет по отделам": "Лучший KPI у Бухгалтерии (87%). Зона роста: Производство (56%) и Отдел продаж (61%).",
     "Отчет по среднему баллу тестирования": "Средний балл тестирования по компании — 72%.",
     "Отчет по просроченным курсам": "Всего просрочено 15 курсов. Наибольшее число просрочек в Производстве.",
 }
@@ -75,3 +88,8 @@ def get_kpi_metrics(): return deepcopy(kpi_metrics)
 def get_report_titles(): return list(report_templates.keys())
 
 def get_report_text(title): return report_templates.get(title, "Отчет не найден.")
+
+
+def get_course_library(): return deepcopy(course_library)
+
+def get_assigned_courses_progress(): return deepcopy(assigned_courses_progress)
