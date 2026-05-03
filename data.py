@@ -22,7 +22,6 @@ departments = [
     {"name": "Бухгалтерия", "employees_count": 8, "average_progress": 84, "average_score": 89, "completed_courses": 16, "overdue_courses": 1, "kpi": 87},
     {"name": "IT-отдел", "employees_count": 15, "average_progress": 79, "average_score": 81, "completed_courses": 22, "overdue_courses": 2, "kpi": 78},
     {"name": "Производство", "employees_count": 20, "average_progress": 58, "average_score": 63, "completed_courses": 24, "overdue_courses": 7, "kpi": 56},
-    {"name": "HR-отдел", "employees_count": 6, "average_progress": 90, "average_score": 92, "completed_courses": 12, "overdue_courses": 0, "kpi": 93},
 ]
 
 kpi_metrics = [
@@ -30,12 +29,11 @@ kpi_metrics = [
     {"name": "KPI завершения курсов", "value": 74},
     {"name": "KPI среднего балла тестирования", "value": 80},
     {"name": "KPI соблюдения сроков", "value": 68},
-    {"name": "KPI активности сотрудников", "value": 71},
 ]
 
 report_templates = {
     "Отчет по выполнению курсов": "За период назначено 42 курса, завершено 31. Средний прогресс обучения — 76%.",
-    "Отчет по отделам": "Лучший KPI у HR-отдела (93%). Зона роста: Производство (56%) и Отдел продаж (61%).",
+    "Отчет по отделам": "Лучший KPI у Бухгалтерии (87%). Зона роста: Производство (56%) и Отдел продаж (61%).",
     "Отчет по среднему баллу тестирования": "Средний балл тестирования по компании — 72%.",
     "Отчет по просроченным курсам": "Всего просрочено 15 курсов. Наибольшее число просрочек в Производстве.",
 }
