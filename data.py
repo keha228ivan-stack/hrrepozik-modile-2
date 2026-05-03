@@ -30,7 +30,6 @@ kpi_metrics = [
     {"name": "KPI завершения курсов", "value": 74},
     {"name": "KPI среднего балла тестирования", "value": 80},
     {"name": "KPI соблюдения сроков", "value": 68},
-    {"name": "KPI активности сотрудников", "value": 71},
 ]
 
 report_templates = {
