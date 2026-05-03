@@ -17,18 +17,57 @@ KV = """
             specific_text_color: 0.08, 0.12, 0.22, 1
 
         ScrollView:
+            do_scroll_x: False
             MDBoxLayout:
                 orientation: "vertical"
                 adaptive_height: True
-                spacing: "10dp"
+                spacing: "12dp"
                 padding: "12dp"
 
                 MDLabel:
                     text: "Выберите период"
                     bold: True
+                    adaptive_height: True
 
                 MDBoxLayout:
                     adaptive_height: True
+                    spacing: "8dp"
+                    size_hint_x: None
+                    width: self.minimum_width
+
+                    MDRaisedButton:
+                        text: "Месяц"
+                        on_release: root.set_period("Месяц")
+
+                    MDRaisedButton:
+                        text: "Квартал"
+                        on_release: root.set_period("Квартал")
+
+                    MDRaisedButton:
+                        text: "Год"
+                        on_release: root.set_period("Год")
+
+                MDLabel:
+                    id: selected_period_label
+                    text: "Текущий период: Месяц"
+                    adaptive_height: True
+
+                MDLabel:
+                    adaptive_height: True
+                    adaptive_height: True
+
+                        adaptive_height: True
+                        adaptive_height: True
+    selected_period = "Месяц"
+
+    def set_period(self, period):
+        """Устанавливает период отчета."""
+        self.selected_period = period
+        self.ids.selected_period_label.text = f"Текущий период: {period}"
+
+        """Показывает текст выбранного отчета с учетом периода."""
+        report = get_report_text(title)
+        self.ids.report_text.text = f"Период: {self.selected_period}\n\n{report}"
                     spacing: "8dp"
 
                     MDRaisedButton:
