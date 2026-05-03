@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.button import MDRaisedButton
@@ -53,45 +54,9 @@ KV = """
                     adaptive_height: True
 
                 MDLabel:
-                    adaptive_height: True
-                    adaptive_height: True
-
-                        adaptive_height: True
-                        adaptive_height: True
-    selected_period = "Месяц"
-
-    def set_period(self, period):
-        """Устанавливает период отчета."""
-        self.selected_period = period
-        self.ids.selected_period_label.text = f"Текущий период: {period}"
-
-        """Показывает текст выбранного отчета с учетом периода."""
-        report = get_report_text(title)
-        self.ids.report_text.text = f"Период: {self.selected_period}\n\n{report}"
-                    spacing: "8dp"
-
-                    MDRaisedButton:
-                        id: period_month
-                        text: "Месяц"
-                        on_release: root.set_period("Месяц")
-
-                    MDRaisedButton:
-                        id: period_quarter
-                        text: "Квартал"
-                        on_release: root.set_period("Квартал")
-
-                    MDRaisedButton:
-                        id: period_year
-                        text: "Год"
-                        on_release: root.set_period("Год")
-
-                MDLabel:
-                    id: selected_period_label
-                    text: "Текущий период: Месяц"
-
-                MDLabel:
                     text: "Выберите отчет"
                     bold: True
+                    adaptive_height: True
 
                 MDBoxLayout:
                     id: reports_box
@@ -102,16 +67,17 @@ KV = """
                 MDCard:
                     orientation: "vertical"
                     padding: "12dp"
-                    size_hint_y: None
-                    height: "220dp"
+                    adaptive_height: True
                     radius: [16, 16, 16, 16]
 
                     MDLabel:
                         text: "Краткая сводка"
                         bold: True
+                        adaptive_height: True
                     MDLabel:
                         id: report_text
                         text: "Нажмите на отчет, чтобы увидеть сводку"
+                        adaptive_height: True
 """
 Builder.load_string(KV)
 
