@@ -31,6 +31,21 @@ kpi_metrics = [
     {"name": "KPI соблюдения сроков", "value": 68},
 ]
 
+
+course_library = [
+    {"id": 1, "title": "Техника продаж", "category": "Продажи", "duration_hours": 8},
+    {"id": 2, "title": "Финансовая отчетность", "category": "Финансы", "duration_hours": 10},
+    {"id": 3, "title": "Кибербезопасность", "category": "IT", "duration_hours": 6},
+    {"id": 4, "title": "Охрана труда", "category": "Производство", "duration_hours": 5},
+]
+
+assigned_courses_progress = [
+    {"employee_id": 1, "course_id": 1, "deadline": "2026-05-20", "progress": 45},
+    {"employee_id": 2, "course_id": 2, "deadline": "2026-05-15", "progress": 88},
+    {"employee_id": 3, "course_id": 3, "deadline": "2026-05-25", "progress": 72},
+    {"employee_id": 4, "course_id": 4, "deadline": "2026-05-10", "progress": 39},
+]
+
 report_templates = {
     "Отчет по выполнению курсов": "За период назначено 42 курса, завершено 31. Средний прогресс обучения — 76%.",
     "Отчет по отделам": "Лучший KPI у Бухгалтерии (87%). Зона роста: Производство (56%) и Отдел продаж (61%).",
@@ -73,3 +88,8 @@ def get_kpi_metrics(): return deepcopy(kpi_metrics)
 def get_report_titles(): return list(report_templates.keys())
 
 def get_report_text(title): return report_templates.get(title, "Отчет не найден.")
+
+
+def get_course_library(): return deepcopy(course_library)
+
+def get_assigned_courses_progress(): return deepcopy(assigned_courses_progress)
