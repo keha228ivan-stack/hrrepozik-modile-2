@@ -1,14 +1,43 @@
 """Модуль с тестовыми данными и простым провайдером данных."""
 
 from copy import deepcopy
+import json
+from pathlib import Path
 
-_CURRENT_USER = {
+_USER_STORAGE_PATH = Path(__file__).resolve().parent / "user_data.json"
+
+_DEFAULT_USER = {
     "login": "director",
     "password": "1234",
     "full_name": "Директор Компании",
     "email": "director@company.local",
     "role": "Руководитель",
 }
+
+
+def _load_current_user():
+    if not _USER_STORAGE_PATH.exists():
+        return deepcopy(_DEFAULT_USER)
+
+    try:
+        data = json.loads(_USER_STORAGE_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return deepcopy(_DEFAULT_USER)
+
+    required = {"login", "password", "full_name", "email", "role"}
+    if not required.issubset(set(data.keys())):
+        return deepcopy(_DEFAULT_USER)
+    return data
+
+
+def _save_current_user(user_data):
+    _USER_STORAGE_PATH.write_text(
+        json.dumps(user_data, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+_CURRENT_USER = _load_current_user()
 
 employees = [
     {"id": 1, "name": "Иванов Иван", "department": "Отдел продаж", "course": "Техника продаж", "progress": 45, "test_score": 58, "overdue": True},
@@ -67,6 +96,7 @@ def register_user(login, password, full_name, email):
         "email": email,
         "role": "Руководитель",
     }
+    _save_current_user(_CURRENT_USER)
     return deepcopy(_CURRENT_USER)
 
 
